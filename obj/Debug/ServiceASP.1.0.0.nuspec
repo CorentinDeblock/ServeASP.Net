@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>ServiceASP</id>
+    <version>1.0.0</version>
+    <authors>ServiceASP</authors>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework=".NETCoreApp3.1">
+        <dependency id="Microsoft.EntityFrameworkCore" version="5.0.8" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="D:\source\repos\ServiceASP\bin\Debug\netcoreapp3.1\ServiceASP.dll" target="lib\netcoreapp3.1\ServiceASP.dll" />
+  </files>
+</package>
