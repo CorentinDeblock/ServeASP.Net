@@ -12,6 +12,7 @@ namespace ServiceASP.Bases
         Read,
         Update,
         Delete,
+        Has,
         Conversion
     }
 
@@ -38,14 +39,19 @@ namespace ServiceASP.Bases
         {
             return Mapper.MapEntityToModel(entity);
         }
+
+        protected virtual Form MapEntityToForm(Entity entity, CRUDAction action = CRUDAction.Conversion)
+        {
+            return Mapper.MapModelToForm(Mapper.MapEntityToModel(entity));
+        }
         protected virtual Entity MapFormToEntity(Form form, CRUDAction action = CRUDAction.Conversion)
         {
             return Mapper.MapFormToEntity(form);
         }
 
-        protected virtual Form MapEntityToForm(Entity entity, CRUDAction action = CRUDAction.Conversion)
+        protected virtual Entity MapModelToEntity(Model model, CRUDAction action = CRUDAction.Conversion)
         {
-            return Mapper.MapModelToForm(Mapper.MapEntityToModel(entity));
+            return Mapper.MapModelToEntity(model);
         }
 
         protected abstract DbSet<Entity> GetDbSet(DataContext dc);
@@ -77,6 +83,14 @@ namespace ServiceASP.Bases
                 .Where(a => a.Id.Equals(id))
                 .Select(OnSingleEntityModel)
                 .SingleOrDefault();
+        }
+
+        public virtual Model Get(Form form)
+        {
+            return Query
+                .Where(a => a == MapFormToEntity(form, CRUDAction.Read))
+                .Select(OnSingleEntityModel)
+                .FirstOrDefault();
         }
 
         public virtual Form GetToForm(IDType id)
@@ -113,7 +127,7 @@ namespace ServiceASP.Bases
         {
             Entity Entity = OnInsert(form);
 
-            Dc.SaveChanges();
+            Save();
 
             return MapEntityToModel(Entity,CRUDAction.Create); 
         }
@@ -122,15 +136,35 @@ namespace ServiceASP.Bases
         {
             Entity Entity = OnUpdate(id,form);
 
-            Dc.SaveChanges();
+            Save();
 
-            return Mapper.MapModelToForm(Mapper.MapEntityToModel(Entity));
+            return MapEntityToForm(Entity, CRUDAction.Update);
         }
 
         public void Delete(IDType id)
         {
             OnDelete(id);
 
+            Save();
+        }
+
+        public bool Has(IDType id)
+        {
+            return Set.Where(a => a.Id.Equals(id)).FirstOrDefault() != null;
+        }
+
+        public bool Has(Model model)
+        {
+            return Set.Where(a => a == MapModelToEntity(model,CRUDAction.Has)).FirstOrDefault() != null;
+        }
+
+        public bool Has(Form form)
+        {
+            return Set.Where(a => a == MapFormToEntity(form,CRUDAction.Has)).FirstOrDefault() != null;
+        }
+
+        public void Save()
+        {
             Dc.SaveChanges();
         }
     }

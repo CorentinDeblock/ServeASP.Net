@@ -7,3 +7,12 @@ D:\source\repos\ServiceASP\obj\Debug\netcoreapp3.1\ServiceASP.csproj.CoreCompile
 D:\source\repos\ServiceASP\obj\Debug\netcoreapp3.1\ServiceASP.dll
 D:\source\repos\ServiceASP\obj\Debug\netcoreapp3.1\ServiceASP.pdb
 D:\source\repos\ServiceASP\obj\Debug\netcoreapp3.1\ServiceASP.csproj.AssemblyReference.cache
+C:\Users\c.deblock\source\repos\ServiceASP.Net\bin\Debug\netcoreapp3.1\ServiceASP.deps.json
+C:\Users\c.deblock\source\repos\ServiceASP.Net\bin\Debug\netcoreapp3.1\ServiceASP.dll
+C:\Users\c.deblock\source\repos\ServiceASP.Net\bin\Debug\netcoreapp3.1\ServiceASP.pdb
+C:\Users\c.deblock\source\repos\ServiceASP.Net\obj\Debug\netcoreapp3.1\ServiceASP.csproj.AssemblyReference.cache
+C:\Users\c.deblock\source\repos\ServiceASP.Net\obj\Debug\netcoreapp3.1\ServiceASP.AssemblyInfoInputs.cache
+C:\Users\c.deblock\source\repos\ServiceASP.Net\obj\Debug\netcoreapp3.1\ServiceASP.AssemblyInfo.cs
+C:\Users\c.deblock\source\repos\ServiceASP.Net\obj\Debug\netcoreapp3.1\ServiceASP.csproj.CoreCompileInputs.cache
+C:\Users\c.deblock\source\repos\ServiceASP.Net\obj\Debug\netcoreapp3.1\ServiceASP.dll
+C:\Users\c.deblock\source\repos\ServiceASP.Net\obj\Debug\netcoreapp3.1\ServiceASP.pdb
