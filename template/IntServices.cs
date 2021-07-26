@@ -7,10 +7,10 @@ using System.Text;
 
 namespace ServiceASP.template
 {
-    public interface IIntService<Model, Form> : IServices<Model, Form, int> { }
+    public interface IIntService<Entity, Model, Form> : IServices<Entity,Model, Form, int> { }
     public abstract class IntServices<DataContext, Entity, Model, Form> :
         BaseServices<DataContext, Entity, Model, Form, int>,
-        IIntService<Model, Form>
+        IIntService<Entity,Model, Form>
         where Entity : class, IModel<int>
         where DataContext : DbContext
     {

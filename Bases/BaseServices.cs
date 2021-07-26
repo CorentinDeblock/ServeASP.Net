@@ -17,7 +17,7 @@ namespace ServiceASP.Bases
     }
 
     public abstract class BaseServices<DataContext, Entity, Model, Form, IDType> :
-        IServices<Model, Form, IDType>
+        IServices<Entity,Model, Form, IDType>
         where Entity : class, IModel<IDType>
         where IDType : IComparable<IDType>
         where DataContext : DbContext
@@ -99,6 +99,13 @@ namespace ServiceASP.Bases
                 .Where(a => a.Id.Equals(id))
                 .Select(OnSingleEntityForm)
                 .SingleOrDefault();
+        }
+        public virtual Model GetFromFunc(Func<Entity, bool> func)
+        {
+            return Query
+                 .Where(func)
+                 .Select(OnSingleEntityModel)
+                 .SingleOrDefault();
         }
 
         protected virtual Entity OnInsert(Form form)
